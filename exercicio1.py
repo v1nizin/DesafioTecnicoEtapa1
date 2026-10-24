@@ -44,3 +44,11 @@ for produto in pedido:
 for cod_sku in bipados:
     if cod_sku not in skus_pedido:
         print(f"NÃO PERTENCE AO PEDIDO - {cod_sku}")
+        
+
+
+
+
+
+
+
