@@ -10,29 +10,35 @@ devolucoes = [
     {"pedido": 1007, "motivo": "Avaria no transporte",      "valor": 1299.00},
 ]
 
-
+# Armazena o valor total das devoluções agrupado por motivo
 totais = {}
+
+for devolucao in devolucoes:
+    motivo = devolucao["motivo"]
+    valor = devolucao["valor"]
     
-for devolucao in devolucoes: 
-    motivo = devolucao["motivo"]         
-    valor = devolucao ["valor"]
-    
-    if motivo not in totais: 
-        totais[motivo] = 0 
+    if motivo not in totais:
+        totais[motivo] = 0
 
     totais[motivo] += valor
 
 print(totais)
 
 maior_num = max(totais.values())
+
+# Identifica qual motivo possui esse maior valor
 for motivo, valor in totais.items():
     if valor == maior_num:
         maior = motivo
+
 print(f"Motivo com maior valor: {maior} - R$ {maior_num:.2f}")
 
-acima_500 = 0 
-for devolucao in devolucoes: 
-    valor = devolucao ["valor"]
-    if valor > 500: 
-        acima_500 += 1 
-print (f"Devoluções acima de R$500,00: {acima_500}")
+acima_500 = 0
+
+for devolucao in devolucoes:
+    valor = devolucao["valor"]
+
+    if valor > 500:
+        acima_500 += 1
+
+print(f"Devoluções acima de R$500,00: {acima_500}")
